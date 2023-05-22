@@ -1,6 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
+
+/** styles */
 import classes from "./EventItem.module.css";
+
+/** components */
+import Button from "../ui/Button";
+import DateIcon from "../icons/date-icon";
+import AddressIcon from "../icons/address-icon";
+import ArrowRightIcon from "../icons/arrow-right-icon";
 
 function EventItem(props) {
   const { title, image, date, location, eventId } = props;
@@ -33,14 +41,21 @@ function EventItem(props) {
         <div className={classes.summary}>
           <h2>{title}</h2>
           <div className={classes.date}>
+            <DateIcon />
             <time>{changingDateFormat(date)}</time>
           </div>
           <div className={classes.address}>
+            <AddressIcon />
             <address>{changingAddressFormat(location)}</address>
           </div>
         </div>
         <div className={classes.actions}>
-          <Link href={detailPageLink}>Explore Event</Link>
+          <Button link={detailPageLink}>
+            <span>이벤트 바로가기</span>
+            <span className={classes.icon}>
+              <ArrowRightIcon />
+            </span>
+          </Button>
         </div>
       </div>
     </li>
