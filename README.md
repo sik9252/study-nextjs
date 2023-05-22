@@ -21,3 +21,22 @@
 
 ---
 
+### 페이지에 들어갈 컴포넌트 생성하기
+
+Next.js에서 /pages는 라우팅을 위한 폴더이기 때문에 이 하위에 view 컴포넌트를 생성하게 된다면 의도하지 않은 기능이 발생하게 될 것이다. 따라서 view와 같은 렌더링 컴포넌트는 /components란 폴더를 생성해 이 곳에 작성해준다.
+
+여기서는 이벤트 목록을 보여줄 컴포넌트인 EventList.js라는 파일과 각각의 이벤트 하나하나에 해당하는 컴포넌트인 EventItem.js라는 파일을 추가했다.
+
+1. HomePage에서 dummy-data.js의 이벤트 데이터들을 불러온다.
+2. HomePage에서 EventList 컴포넌트를 불러오고, EventList 컴포넌트로 받아온 이벤트 데이터 목록을 넘겨준다.
+3. EventList에서 EventItem 컴포넌트를 불러오고, EventItem 컴포넌트로 이벤트 데이터를 넘겨준다. (이벤트 제목, 내용, 날짜 등...)
+4. css를 적용한다.
+
+이번에 css를 적용할때는 styled-components 대신 module.css를 사용해보았다. 사용방법은 아래와 같다.
+
+1. `생성할파일명.module.css`를 생성한다.
+2. 생성한 스타일 파일을 연결할 컴포넌트에 `import classes from "./생성할파일명.module.css";`를 적용한다.
+3. module.css 파일 안에 원하는 class명과 css 코드로 스타일을 생성한다.
+4. 생성한 스타일을 적용할 요소에 `className={classes.클래스명}`을 적용한다.
+
+---
