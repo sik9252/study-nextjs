@@ -72,3 +72,17 @@ Next.js에서 /pages는 라우팅을 위한 폴더이기 때문에 이 하위에
 마지막으로 이렇게 생성한 EventSearch 컴포넌트를 /event 페이지의 상단에 넣어주었다.
 
 ---
+
+### Event Search 기능 추가하기
+
+UI만 만들어놨던 Event Search 컴포넌트에 년도와 월을 입력받아 해당 년도(year)와 월(month) 값을 가지고 useRouter()를 이용해 `/events/search/2021-03`의 형태를 가진 url로 넘겨주는 가능을 구현한다.
+
+url에서 2021-03부분을 router.query.slug를 이용해 파싱해와 알맞게 split 한 뒤 year, month 값을 필터링된 이벤트 정보를 가져오는 getFilteredEvents() 함수로 전달해서 이벤트 데이터를 가져와 화면에 뿌려준다.
+
+---
+
+### Error Alert 컴포넌트 추가하기
+
+실제 서버와 응답을 하지 않기 때문에 각 http 에러에 대한 정의를 한 에러 핸들링은 아니고, 그저 이벤트 데이터가 없거나 잘못된 필터링을 입력했을때 보여줄 에러 페이지 UI를 여러 페이지에서 재사용 가능하게 만들었다.
+
+---
