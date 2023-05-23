@@ -6,6 +6,8 @@ import { getEventById } from "../../dummy-data";
 import EventSummary from "../../components/event-detail/EventSummary";
 import EventLogistics from "../../components/event-detail/EventLogistics";
 import EventContent from "../../components/event-detail/EventContent";
+import Button from "../../components/ui/Button";
+import ErrorAlert from "../../components/ui/ErrorAlert";
 
 function EventDetailPage() {
   const router = useRouter();
@@ -15,7 +17,16 @@ function EventDetailPage() {
   const eventDetails = getEventById(eventId);
 
   if (!eventDetails) {
-    return <h1>이벤트가 존재하지 않습니다!</h1>;
+    return (
+      <Fragment>
+        <ErrorAlert>
+          <h1>이벤트가 존재하지 않습니다!</h1>
+        </ErrorAlert>
+        <div className="center">
+          <Button link="/events">메인으로 돌아가기</Button>
+        </div>
+      </Fragment>
+    );
   }
 
   return (
