@@ -16,7 +16,7 @@ function Button(props) {
   // 기본 버튼
   return (
     <button className={classes.btn} onClick={props.onClick}>
-      {props.onClick}
+      {props.children}
     </button>
   );
 }
